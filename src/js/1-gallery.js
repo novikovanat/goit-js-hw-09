@@ -1,3 +1,7 @@
+// import 'simplelightbox/dist/simple-lightbox.min.css';
+// import '../css/styles.css';
+import SimpleLightbox from 'simplelightbox';
+
 const images = [
   {
     preview:
@@ -66,11 +70,29 @@ const images = [
 
 const gallery = document.querySelector('.gallery');
 
-const imageGallary = images => {
-  let elemGallary = images
-    .map(
-      image =>
-        `<li class="gallery-item">
+// const imageGallary = images => {
+//   let galleryString = images
+//     .map(
+//       image =>
+//         `<li class="gallery-item">
+// <a class="gallery-link" href="${image.original}">
+//     <img
+//     class="gallery-image"
+//     src="${image.preview}"
+//     alt="${image.description}"
+//     />
+// </a>
+// </li>`
+//     )
+//     .join(``);
+
+//   gallery.insertAdjacentHTML('afterbegin', galleryString);
+// };
+
+const imageGallary = images
+  .map(
+    image =>
+      `<li class="gallery-item">
 <a class="gallery-link" href="${image.original}">
     <img
     class="gallery-image"
@@ -79,13 +101,16 @@ const imageGallary = images => {
     />
 </a>
 </li>`
-    )
-    .join(``);
+  )
+  .join(``);
 
-  gallery.insertAdjacentHTML('afterbegin', elemGallary);
-};
+gallery.insertAdjacentHTML('afterbegin', imageGallary);
 
-import SimpleLightbox from 'simplelightbox';
-
-let instance = new SimpleLightbox('.gallery');
-instance.on('show.simplelightbox', imageGallary(images));
+new SimpleLightbox('.gallery a', {
+  overlay: true,
+  overlayOpacity: 0.8,
+  captionDelay: 250,
+  captions: true,
+  captionsData: 'alt',
+  captionClass: 'captions',
+});
