@@ -66,19 +66,26 @@ const images = [
 
 const gallery = document.querySelector('.gallery');
 
-const elemGallary = images
-  .map(
-    image =>
-      `<li class="gallery-item">
-    <a class="gallery-link" href="${image.original}">
-      <img
-        class="gallery-image"
-        src="${image.preview}"
-        alt="${image.description}"
-      />
-    </a>
-  </li>`
-  )
-  .join(``);
+const imageGallary = images => {
+  let elemGallary = images
+    .map(
+      image =>
+        `<li class="gallery-item">
+<a class="gallery-link" href="${image.original}">
+    <img
+    class="gallery-image"
+    src="${image.preview}"
+    alt="${image.description}"
+    />
+</a>
+</li>`
+    )
+    .join(``);
 
-gallery.insertAdjacentHTML('afterbegin', elemGallary);
+  gallery.insertAdjacentHTML('afterbegin', elemGallary);
+};
+
+import SimpleLightbox from 'simplelightbox';
+
+let instance = new SimpleLightbox('.gallery');
+instance.on('show.simplelightbox', imageGallary(images));
