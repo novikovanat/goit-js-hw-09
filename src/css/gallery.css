@@ -29,3 +29,14 @@
 .captions {
     text-align: center;
 }
+
+.sl-wrapper .sl-navigation button.sl-prev,
+.sl-wrapper .sl-navigation button.sl-next,
+.sl-wrapper .sl-counter,
+.sl-wrapper .sl-close {
+    color: #fff;
+}
+
+.sl-overlay {
+    background: #2E2F42;
+}
