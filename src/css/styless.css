@@ -16,12 +16,3 @@ a {
     display: block;
     margin: 16px;
 }
-
-.sl-counter,
-.sl-navigation {
-    color: #fff;
-}
-
-.sl-overlay {
-    background-color: #2E2F42;
-}
