@@ -1,4 +1,6 @@
-@import url(./reset.css);
+@import url("./reset.css");
+@import url("./gallery.css");
+@import url("./form.css");
 
 
 body {
@@ -14,6 +16,3 @@ a {
     display: block;
     margin: 16px;
 }
-
-@import url(./gallery.css);
-@import url(./form.css);
